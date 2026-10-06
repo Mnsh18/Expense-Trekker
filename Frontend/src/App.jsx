@@ -8,6 +8,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./App.css";
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 function App() {
   // =========================
@@ -93,7 +95,7 @@ function App() {
       }
 
       const transactionsResponse = await fetch(
-        "http://127.0.0.1:8000/transactions",
+        `${API_BASE_URL}/transactions`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -130,7 +132,7 @@ function App() {
       setTransactions(transactionsData);
 
       const summaryResponse = await fetch(
-        "http://127.0.0.1:8000/summary",
+        `${API_BASE_URL}/summary`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -156,7 +158,7 @@ function App() {
       // =========================
 
       const analyticsResponse = await fetch(
-        "http://127.0.0.1:8000/analytics/expenses-by-category",
+        "`${API_BASE_URL}/analytics/expenses-by-category`",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -197,7 +199,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/auth/login",
+        "${API_BASE_URL}/auth/login",
         {
           method: "POST",
           headers: {
@@ -275,7 +277,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/auth/register",
+        "`${API_BASE_URL}/auth/register`",
         {
           method: "POST",
           headers: {
@@ -336,7 +338,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/transactions",
+        `${API_BASE_URL}/transactions`,
         {
           method: "POST",
           headers: {
@@ -397,7 +399,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/transactions/${editingId}`,
+        `${API_BASE_URL}/transactions/${editingId}`,
         {
           method: "PATCH",
           headers: {
@@ -465,7 +467,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/transactions/${transactionId}`,
+        `${API_BASE_URL}/transactions/${transactionId}`,
         {
           method: "DELETE",
           headers: {
