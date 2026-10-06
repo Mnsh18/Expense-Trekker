@@ -158,7 +158,7 @@ function App() {
       // =========================
 
       const analyticsResponse = await fetch(
-        "`${API_BASE_URL}/analytics/expenses-by-category`",
+        `${API_BASE_URL}/analytics/expenses-by-category`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
