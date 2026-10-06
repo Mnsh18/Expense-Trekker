@@ -81,7 +81,7 @@ function App() {
 
     try {
       const meResponse = await fetch(
-        "http://127.0.0.1:8000/auth/me",
+        `${API_BASE_URL}/auth/me`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
