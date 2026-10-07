@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   PieChart,
   Pie,
@@ -78,6 +78,8 @@ function App() {
     if (!token) {
       return;
     }
+
+    
 
     try {
       const meResponse = await fetch(
@@ -182,6 +184,20 @@ function App() {
       console.error("Error loading data:", error);
     }
   };
+useEffect(() => {
+  const token = localStorage.getItem("access_token");
+
+  if (!token) {
+    return;
+  }
+
+  const loadInitialData = async () => {
+    await loadData();
+  };
+
+  loadInitialData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   // =========================
   // LOGIN
